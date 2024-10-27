@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "map.h"
+#include "Code_fourni/map.h"
 
 int main() {
     t_map map = createMapFromFile("..\\maps\\example1.map");
