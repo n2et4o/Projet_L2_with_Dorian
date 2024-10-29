@@ -11,4 +11,7 @@ CMakeFiles/untitled1.dir/main.c.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
- C:\Users\Docau\CLionProjects\Projet_L2_with_Dorian\Code_fourni/map.h
+ C:\Users\Docau\CLionProjects\Projet_L2_with_Dorian\Code_fourni/map.h \
+ C:\Users\Docau\CLionProjects\Projet_L2_with_Dorian\Code_fourni/loc.h \
+ C:\Users\Docau\CLionProjects\Projet_L2_with_Dorian\Code_fourni/moves.h \
+ C:\Users\Docau\CLionProjects\Projet_L2_with_Dorian\Code_fourni/loc.h

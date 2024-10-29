@@ -53,6 +53,7 @@ t_localisation translate(t_localisation loc, t_move move)
      *  - the origin (x=0, y=0) is at the top left corner
      */
     t_position res;
+    res.x = loc.pos.x; res.y = loc.pos.y; // attention correction de bug car il ne copie par les coordoner de base apporter
     switch (move) {
         case F_10:
             switch (loc.ori) {
