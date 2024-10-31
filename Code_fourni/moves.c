@@ -2,6 +2,7 @@
 // Created by flasque on 19/10/2024.
 //
 
+#include <stdio.h>
 #include "moves.h"
 
 /* prototypes of local functions */
@@ -21,13 +22,13 @@ t_orientation rotate(t_orientation, t_move );
  * @param move : the move to do
  * @return the new localisation of the robot
  */
-t_localisation translate(t_localisation , t_move);
+t_position translate(t_localisation , t_move);
 
 /* definition of local functions */
 
 t_orientation rotate(t_orientation ori, t_move move)
 {
-    int rst;
+    t_orientation rst;
     switch (move)
     {
         case T_LEFT:
@@ -45,15 +46,14 @@ t_orientation rotate(t_orientation ori, t_move move)
     return (ori+rst)%4;
 }
 
-t_localisation translate(t_localisation loc, t_move move)
+t_position translate(t_localisation loc, t_move move)
 {
     /** rules for coordinates:
      *  - x grows to the right with step of +1
      *  - y grows to the bottom with step of +1
      *  - the origin (x=0, y=0) is at the top left corner
      */
-    t_position res;
-    res.x = loc.pos.x; res.y = loc.pos.y; // attention correction de bug car il ne copie par les coordoner de base apporter
+    t_position res = loc.pos; // attention correction de bug car il ne copie par les coordoner de base apporter
     switch (move) {
         case F_10:
             switch (loc.ori) {
@@ -130,7 +130,7 @@ t_localisation translate(t_localisation loc, t_move move)
         default:
             break;
     }
-        return loc_init(res.x, res.y, loc.ori);
+        return res;
 
 }
 
@@ -143,10 +143,15 @@ char *getMoveAsString(t_move move)
 
 t_localisation move(t_localisation loc, t_move move)
 {
-    t_localisation new_loc;
-    new_loc.ori = rotate(loc.ori, move);
-    new_loc = translate(loc, move);
-    return new_loc;
+    //modif car problem sur rotate
+    t_localisation newpos = loc_init(loc.pos.x,loc.pos.y,loc.ori);
+    if (move == T_LEFT || move == T_RIGHT || move == U_TURN ){
+        newpos.ori = rotate(loc.ori, move);
+    }
+    else {
+        newpos.pos = translate(loc, move);
+    }
+    return newpos;
 }
 
 void updateLocalisation(t_localisation *p_loc, t_move m)
