@@ -10,15 +10,16 @@
 #include "Code_fourni/moves.h"
 
 typedef struct tree {
-    int val;
+    t_move move;
+    int cost;
     struct tree **son;
     int nbson;
 }n_node;
 
-n_node* createnode(t_localisation,t_map);
+n_node* createnode(t_localisation,t_map,t_move, int);
 
 void addson(n_node*,n_node*);
 
-
+n_node *creattree(t_localisation,t_map);
 
 #endif //TREE_H

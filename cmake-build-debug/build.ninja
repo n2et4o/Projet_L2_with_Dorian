@@ -52,36 +52,56 @@ build cmake_object_order_depends_target_untitled1: phony || CMakeFiles/untitled1
 build CMakeFiles/untitled1.dir/main.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/main.c || cmake_object_order_depends_target_untitled1
   DEP_FILE = CMakeFiles\untitled1.dir\main.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
   OBJECT_DIR = CMakeFiles\untitled1.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
 
-build CMakeFiles/untitled1.dir/loc.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/loc.c || cmake_object_order_depends_target_untitled1
-  DEP_FILE = CMakeFiles\untitled1.dir\loc.c.obj.d
+build CMakeFiles/untitled1.dir/Code_fourni/loc.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/Code_fourni/loc.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\Code_fourni\loc.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir\Code_fourni
+
+build CMakeFiles/untitled1.dir/Code_fourni/moves.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/Code_fourni/moves.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\Code_fourni\moves.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir\Code_fourni
+
+build CMakeFiles/untitled1.dir/Code_fourni/map.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/Code_fourni/map.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\Code_fourni\map.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir\Code_fourni
+
+build CMakeFiles/untitled1.dir/Code_fourni/queue.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/Code_fourni/queue.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\Code_fourni\queue.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir\Code_fourni
+
+build CMakeFiles/untitled1.dir/Code_fourni/stack.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/Code_fourni/stack.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\Code_fourni\stack.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir\Code_fourni
+
+build CMakeFiles/untitled1.dir/tree.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/tree.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\tree.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
   OBJECT_DIR = CMakeFiles\untitled1.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
 
-build CMakeFiles/untitled1.dir/moves.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/moves.c || cmake_object_order_depends_target_untitled1
-  DEP_FILE = CMakeFiles\untitled1.dir\moves.c.obj.d
+build CMakeFiles/untitled1.dir/interfaces_graphiques.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/interfaces_graphiques.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\interfaces_graphiques.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\untitled1.dir
-  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
-
-build CMakeFiles/untitled1.dir/map.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/map.c || cmake_object_order_depends_target_untitled1
-  DEP_FILE = CMakeFiles\untitled1.dir\map.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\untitled1.dir
-  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
-
-build CMakeFiles/untitled1.dir/queue.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/queue.c || cmake_object_order_depends_target_untitled1
-  DEP_FILE = CMakeFiles\untitled1.dir\queue.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\untitled1.dir
-  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
-
-build CMakeFiles/untitled1.dir/stack.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/stack.c || cmake_object_order_depends_target_untitled1
-  DEP_FILE = CMakeFiles\untitled1.dir\stack.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
   OBJECT_DIR = CMakeFiles\untitled1.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
 
@@ -93,9 +113,9 @@ build CMakeFiles/untitled1.dir/stack.c.obj: C_COMPILER__untitled1_unscanned_Debu
 #############################################
 # Link the executable untitled1.exe
 
-build untitled1.exe: C_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/main.c.obj CMakeFiles/untitled1.dir/loc.c.obj CMakeFiles/untitled1.dir/moves.c.obj CMakeFiles/untitled1.dir/map.c.obj CMakeFiles/untitled1.dir/queue.c.obj CMakeFiles/untitled1.dir/stack.c.obj
+build untitled1.exe: C_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/main.c.obj CMakeFiles/untitled1.dir/Code_fourni/loc.c.obj CMakeFiles/untitled1.dir/Code_fourni/moves.c.obj CMakeFiles/untitled1.dir/Code_fourni/map.c.obj CMakeFiles/untitled1.dir/Code_fourni/queue.c.obj CMakeFiles/untitled1.dir/Code_fourni/stack.c.obj CMakeFiles/untitled1.dir/tree.c.obj CMakeFiles/untitled1.dir/interfaces_graphiques.c.obj | C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2main.a C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2.dll.a
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = C:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  -lmingw32  -mwindows  C:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2main.a  C:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled1.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -148,14 +168,14 @@ build all: phony untitled1.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/CMakeLists.txt C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/cmake_modules/FindSDL2.cmake C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/cmake_modules/FindSDL2_ttf.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.1/bin/cmake/win/x64/share/cmake-3.28/Modules/Platform/WindowsPaths.cmake C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/CMakeLists.txt C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/cmake_modules/FindSDL2.cmake C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/cmake_modules/FindSDL2_ttf.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeRCCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
 
 
 #############################################
