@@ -27,11 +27,14 @@ int main() {
         printf("\n");
     }
 
-    t_localisation marc = loc_init(6,5,0), test = loc_init(0,0,0);
-    printf("%d\n",map.costs[marc.pos.x][marc.pos.y]);
+    //printf("%d\n",map.costs[marc.pos.x][marc.pos.y]);
     //test = move(marc, 2);
     //printf("[%d][%d][%d]",test.pos.x,test.pos.y,test.ori);
+    t_localisation marc = loc_init(6,5,0), test = loc_init(0,0,0);
     n_node *tree =  creattree(marc,map);
-    printf("-------------------->%d", tree->son[1]->cost);
+    for (int i = 0 ; i < 7; i++){
+        printf("%d\n",i);
+        printf("---------->%d\n", tree->son[0]->son[i]->move);
+    }
     return 0;
 }

@@ -147,9 +147,11 @@ t_localisation move(t_localisation loc, t_move move)
     t_localisation newpos = loc_init(loc.pos.x,loc.pos.y,loc.ori);
     if (move == T_LEFT || move == T_RIGHT || move == U_TURN ){
         newpos.ori = rotate(loc.ori, move);
+        newpos.pos = loc.pos;
     }
     else {
         newpos.pos = translate(loc, move);
+        newpos.ori = loc.ori;
     }
     return newpos;
 }
