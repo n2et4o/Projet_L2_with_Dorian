@@ -3,64 +3,47 @@
 //
 #include <stdio.h>
 #include"tree.h"
-n_node* creatnode(t_localisation loc,t_map map,t_move move)
-{
-    n_node *newnode = (n_node*)malloc(sizeof(n_node));
-    newnode->loc = loc;
-    newnode->cost = map.costs[newnode->loc.pos.x][newnode->loc.pos.y];
-    newnode->move = move;
-    newnode->nbson = 0;
-    newnode->son = (n_node**) malloc(sizeof(n_node*));
-    return newnode;
-}
+static int* suppTabval(int* T, int index, int size) {
 
-void addson(n_node *parents,n_node *son)
-{
-    parents->son[parents->nbson] = son;
-    parents->nbson++;
-}
+    int* newT = (int*)malloc((size - 1) * sizeof(int));
 
-
-
-n_node *creattree(t_localisation marc, t_map map)
-{
-    n_node *tree = creatnode(marc,map,-1);
-    for(int i = 0; i < 5; i++){ // la profondeur de l'arbre
-
-        //printf("%d\n",j);
-        switch (i) {
-            case 0:
-                for(t_move j = 0 ; j < 7; j++) {
-                    printf("%d\n",j);
-                    t_localisation new = move(marc, j);
-                    //printf("[%d][%d][%d]\n", new.pos.y, new.pos.x, new.ori);
-                    n_node *son = creatnode(new, map, j);
-                    addson(tree, son);
-                }
-                break;
-            case 1:
-                for(t_move j = 0 ; j < 7; j++) {
-
-                    t_localisation new = tree->son[0]->loc;
-                    //printf("[%d][%d][%d]\n", new.pos.y, new.pos.x, new.ori);
-                    n_node *son = creatnode(new, map, j);
-                    addson(tree->son[0], son);
-                }
-                printf("\n");
-                break;
-            case 2:
-                printf("\n");
-                break;
-            case 3:
-                printf("\n");
-                break;
-            case 4:
-                printf("\n");
-                break;
-            default:
+    for (int i = 0, j = 0; i < size; i++) {
+        if (i != index) {
+            newT[j++] = T[i];
         }
     }
 
+    return newT;
+}
 
-    return tree;
+n_node *creat_node (t_localisation loc, t_map map, int *mouves, int nbmouv)
+{
+    n_node *node = (n_node*) malloc(sizeof(n_node));
+    node->loc = loc;
+    node->cost = ((loc.pos.y > map.x_max || loc.pos.y < -1) || (loc.pos.x > map.y_max || loc.pos.x < -1))? 1000 : map.costs[node->loc.pos.x][node->loc.pos.y];
+    node->moves = mouves;
+    node->nbson = nbmouv;
+    node->son = (n_node**) malloc(node->nbson*sizeof (n_node*));
+    return node;
+}
+
+
+void creat_tree(n_node *tree, t_map map, int depth)
+{
+    if (depth >= 5) {
+        return;
+    }
+    int *newmove = NULL;
+    n_node *node = NULL;
+    t_localisation newloc;
+    printf("-[%d]-\n",tree->cost);
+    for (int i = 0; i < tree->nbson; i++) {
+        newmove = suppTabval(tree->moves, i, tree->nbson);
+        newloc = move(tree->loc, i);
+        //printf("[%d][%d][%d]\n",newloc.pos.x,newloc.pos.y,newloc.ori);
+        node = creat_node(newloc, map, newmove, tree->nbson - 1);
+        tree->son[i] = node;
+        creat_tree(tree->son[i], map,depth+1);
+        free(newmove);
+    }
 }

@@ -8,7 +8,6 @@ int main() {
     t_map map = createMapFromFile("..\\maps\\example1.map");
     printf("Map created with dimensions %d x %d\n", map.y_max, map.x_max);
 
-
     for (int i = 0; i < map.y_max; i++)
     {
         for (int j = 0; j < map.x_max; j++)
@@ -27,14 +26,13 @@ int main() {
         printf("\n");
     }
 
-    //printf("%d\n",map.costs[marc.pos.x][marc.pos.y]);
-    //test = move(marc, 2);
-    //printf("[%d][%d][%d]",test.pos.x,test.pos.y,test.ori);
-    t_localisation marc = loc_init(6,5,0), test = loc_init(0,0,0);
-    n_node *tree =  creattree(marc,map);
-    for (int i = 0 ; i < 7; i++){
-        printf("%d\n",i);
-        printf("---------->%d\n", tree->son[0]->son[i]->move);
-    }
+    int T[] = {0,1,2,3,4,5,6};
+    t_localisation marc = loc_init(6,5,0);
+    n_node *tree = creat_node(marc,map,T,7);
+    creat_tree(tree,map,0);
+    printf("\nla");
+    //printf("----------------------->%d",tree->son[0]->cost);
+
+
     return 0;
 }
