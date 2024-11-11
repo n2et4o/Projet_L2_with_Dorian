@@ -45,3 +45,21 @@ void creat_tree(n_node *tree, t_map map, int depth)
         free(newmove);
     }
 }
+
+void print_tree(n_node *node, int depth) {
+    if (node == NULL) {
+        return;
+    }
+
+    // Print the current node details
+    printf("Node at depth %d: Location: (%d, %d), Moves: ", depth, node->loc.x, node->loc.y);
+    for (int i = 0; i < node->nbson; i++) {
+        printf("%d ", node->moves[i]);
+    }
+    printf("\n");
+
+    // Recursively print the children
+    for (int i = 0; i < node->nbson; i++) {
+        print_tree(node->son[i], depth + 1);
+    }
+}

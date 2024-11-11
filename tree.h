@@ -17,6 +17,6 @@ typedef struct tree {
 }n_node;
 n_node *creat_node (t_localisation , t_map , int *, int );
 void creat_tree(n_node*, t_map,int);
-
+void print_tree(n_node *node, int depth);
 
 #endif //TREE_H

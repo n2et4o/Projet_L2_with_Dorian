@@ -31,6 +31,5 @@ int main() {
     n_node *tree = creat_node(marc,map,T,7);
     creat_tree(tree,map,0);
 
-
     return 0;
 }
