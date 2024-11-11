@@ -29,9 +29,9 @@ int main() {
     int T[] = {0,1,2,3,4,5,6};
     t_localisation marc = loc_init(6,5,0);
     n_node *tree = creat_node(marc,map,T,7);
+    printf("[%d]\n",map.costs[6][5]);
     creat_tree(tree,map,0);
-    printf("\nla");
-    //printf("----------------------->%d",tree->son[0]->cost);
+    printf("\nlaaaaaaaaaaaaaaaaaa");
 
 
     return 0;
