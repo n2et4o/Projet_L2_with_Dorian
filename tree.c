@@ -36,11 +36,9 @@ void creat_tree(n_node *tree, t_map map, int depth)
     int *newmove = NULL;
     n_node *node = NULL;
     t_localisation newloc;
-    printf("-[%d]-\n",tree->cost);
     for (int i = 0; i < tree->nbson; i++) {
         newmove = suppTabval(tree->moves, i, tree->nbson);
         newloc = move(tree->loc, i);
-        //printf("[%d][%d][%d]\n",newloc.pos.x,newloc.pos.y,newloc.ori);
         node = creat_node(newloc, map, newmove, tree->nbson - 1);
         tree->son[i] = node;
         creat_tree(tree->son[i], map,depth + 1);
