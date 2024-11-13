@@ -31,21 +31,13 @@ int main(int argc, char *argv[]) {
         printf("\n");
     }
 
-
-    //displayMap(map);
-    printf("\nDorian's part\n");
-    t_localisation marc = loc_init(4,5,0), test = loc_init(0,0,0);
-    printf("%d\n",map.costs[marc.pos.x][marc.pos.y]);
-    //marc = move(marc, 2);
-    printf("\n\n[%d][%d][%d]\n\n",test.pos.x,test.pos.y,test.ori);
-    n_node *tree =  creattree(marc,map);
-    printf("-------------------->%d", tree->son[1]->cost);
-
-    if (tree->son[1]->cost > 10000 || tree->son[1]->cost < 0){
-        printf("\nSortie de la carte");
-    }
-
+    int T[] = {0,1,2,3,4,5,6};
+    t_localisation marc = loc_init(4,4,0);
+    n_node *tree = creat_node(marc,map,T,7);
+    creat_tree(tree,map,0);
     run_rover(plateau,marc,map);
+
+
 
     return 0;
 }

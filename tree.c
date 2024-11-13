@@ -3,36 +3,63 @@
 //
 #include <stdio.h>
 #include"tree.h"
-n_node* creatnode(t_localisation pos,t_map map,t_move move)
-{
-    t_position npos = pos.pos;
-    n_node *newnode = (n_node*)malloc(sizeof(n_node));
-    newnode->cost = map.costs[npos.x][npos.y];
-    newnode->move = move;
-    newnode->nbson = 0;
-    newnode->son = (n_node**) malloc(sizeof(n_node*));
-    return newnode;
-}
+static int* suppTabval(int* T, int index, int size) {
 
-void addson(n_node *parents,n_node *son)
-{
-    parents->son[parents->nbson] = son;
-    parents->nbson++;
-}
+    int* newT = (int*)malloc((size - 1) * sizeof(int));
 
-n_node *creattree(t_localisation marc, t_map map)
-{
-    n_node *tree = creatnode(marc,map,-1);
-    //for(int i = 0; i < 5; i++){ // la profondeur de l'arbre
-    for(int j = 0 ; j < 7; j++){
-        //printf("%d\n",j);
-        t_localisation new = move(marc,j);
-        printf("[%d][%d][%d]\n",new.pos.y,new.pos.x,new.ori);
-        n_node *son = creatnode(new,map,j);
-            addson(tree , son);
+    for (int i = 0, j = 0; i < size; i++) {
+        if (i != index) {
+            newT[j++] = T[i];
         }
-    //}
+    }
+
+    return newT;
+}
+
+n_node *creat_node (t_localisation loc, t_map map, int *mouves, int nbmouv)
+{
+    n_node *node = (n_node*) malloc(sizeof(n_node));
+    node->loc = loc;
+    node->cost = ((loc.pos.y >= map.x_max || loc.pos.y <= -1) || (loc.pos.x >= map.y_max || loc.pos.x <= -1))? 10000 : map.costs[node->loc.pos.x][node->loc.pos.y];
+    node->moves = mouves;
+    node->nbson = nbmouv;
+    node->son = (n_node**) malloc(node->nbson*sizeof (n_node*));
+    return node;
+}
 
 
-    return tree;
+void creat_tree(n_node *tree, t_map map, int depth)
+{
+    if (depth >= 5) {
+        return;
+    }
+    int *newmove = NULL;
+    n_node *node = NULL;
+    t_localisation newloc;
+    for (int i = 0; i < tree->nbson; i++) {
+        newmove = suppTabval(tree->moves, i, tree->nbson);
+        newloc = move(tree->loc, i);
+        node = creat_node(newloc, map, newmove, tree->nbson - 1);
+        tree->son[i] = node;
+        creat_tree(tree->son[i], map,depth + 1);
+        free(newmove);
+    }
+}
+
+void print_tree(n_node *node, int depth) {
+    if (node == NULL) {
+        return;
+    }
+
+    // Print the current node details
+    printf("Node at depth %d: Location: (%d, %d), Moves: ", depth, node->loc.pos.x, node->loc.pos.y);
+    for (int i = 0; i < node->nbson; i++) {
+        printf("%d ", node->moves[i]);
+    }
+    printf("\n");
+
+    // Recursively print the children
+    for (int i = 0; i < node->nbson; i++) {
+        print_tree(node->son[i], depth + 1);
+    }
 }
