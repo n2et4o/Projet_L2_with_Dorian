@@ -50,4 +50,10 @@ void afficherArbre(n_node* , int , char*);
  */
 n_node* min_son(n_node*);
 
+/**
+ * @brief function free memory
+ * @param n_node : tree to free
+ */
+void free_tree(n_node*)
+
 #endif //TREE_H
