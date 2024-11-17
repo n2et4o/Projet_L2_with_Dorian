@@ -95,3 +95,15 @@ n_node* min_son(n_node *tree)
 
 }
 
+void free_tree(n_node* node) {
+    if (node == NULL) {
+        return;
+    }
+    for (int i = 0; i < node->nbson; i++) {
+        free_tree(node->son[i]);
+    }
+    free(node->son);
+    free(node->moves);
+    free(node);
+}
+
