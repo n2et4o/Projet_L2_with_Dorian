@@ -72,7 +72,7 @@ void creat_tree(n_node *tree, t_map map, int depth)
 
 void afficherArbre(n_node* node, int depth, char* prefix)
 {
-    if (node == NULL || depth == 5 ) {
+    if (node == NULL || depth == 5 || node->cost > 11111) {
         return;
     }
 
