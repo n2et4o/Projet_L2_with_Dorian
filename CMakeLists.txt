@@ -27,7 +27,8 @@ add_executable(untitled1 main.c
         Code_fourni/stack.h
         tree.h
         tree.c
-        interfaces_graphiques.c)
+        interfaces_graphiques.c
+        test.c)
 
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_TTF_LIBRARIES})

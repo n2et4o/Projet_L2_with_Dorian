@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include "Code_fourni/map.h"
+#include "Code_fourni/loc.h"
+#include "Code_fourni/moves.h"
 #include "tree.h"
 #include "interfaces_graphiques.h"
 
@@ -31,13 +34,16 @@ int main(int argc, char *argv[]) {
         printf("\n");
     }
 
-    int T[] = {0,1,2,3,4,5,6};
     t_localisation marc = loc_init(4,4,0);
+    int T[] = {0,1,2,3,4,5,6};
     n_node *tree = creat_node(marc,map,T,7);
     creat_tree(tree,map,0);
-    run_rover(plateau,marc,map);
+    printf("\n");
+    afficherArbre(tree,0,"",1);
+    printf("--->ICI");
+    run_rover(plateau, marc, map,tree);
 
-
+    //free_tree(tree);
 
     return 0;
 }

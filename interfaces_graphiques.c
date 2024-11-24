@@ -29,11 +29,11 @@ void initialiserTextures(SDL_Renderer *renderer, SDL_Texture **textures) {
     textures[10] = chargerTexture(renderer, "..\\images\\Est.bmp");
     textures[11] = chargerTexture(renderer, "..\\images\\Sud.bmp");
     textures[12] = chargerTexture(renderer, "..\\images\\Ouest.bmp");
+    textures[13] = chargerTexture(renderer, "..\\images\\ESTF.bmp");
 }
 
 void afficherPlateau(SDL_Renderer *renderer, int plateau[NBR_LIGNES][NBR_COLONNES], SDL_Texture *textures[5],t_map map,int deca) {
     SDL_Rect position;
-    int lc = LARGEUR_CASE, hc = HAUTEUR_CASE;
     for (int i = 0; i < map.y_max; i++) {
         for (int j = 0; j < map.x_max; j++) {
 
@@ -47,9 +47,6 @@ void afficherPlateau(SDL_Renderer *renderer, int plateau[NBR_LIGNES][NBR_COLONNE
             SDL_Texture* texture;
             if (valeur == 0) {
                 texture = textures[4];  // Tour
-            }
-            else if (valeur == 1) {
-                texture = textures[0]; // Plaine
             }
             else if (valeur == 2) {
                 texture = textures[1];  // Erg
@@ -69,8 +66,8 @@ void afficherPlateau(SDL_Renderer *renderer, int plateau[NBR_LIGNES][NBR_COLONNE
     }
 }
 
-void libererTextures(SDL_Texture *textures[13]) {
-    for (int i = 0; i < 13; i++) {
+void libererTextures(SDL_Texture *textures[14]) {
+    for (int i = 0; i < 14; i++) {
         if (textures[i]) {
             SDL_DestroyTexture(textures[i]);
         }
@@ -92,44 +89,42 @@ void afficherBoussole(SDL_Renderer *renderer, SDL_Texture *boussoleTextures[4], 
     SDL_RenderCopy(renderer, boussoleTextures[ori], NULL, &position);
 }
 
-void afficherHistorique(SDL_Renderer *renderer, TTF_Font *font, const char ** mouvements [], int nbMouvements) {
-    SDL_Color couleur = {255, 255, 255};  // Couleur du texte : blanc
+void afficher_ESTF(SDL_Renderer *renderer, SDL_Texture *Textures,t_map map) {
+    SDL_Rect position = { .x = LARGEUR_BOUSSOLE + 67, .y = 0, .w = map.x_max * LARGEUR_CASE + LARGEUR_HISTORIQUE, .h = LARGEUR_BOUSSOLE + 67  };
+    SDL_RenderCopy(renderer, Textures, NULL, &position);
+}
 
-    if (!font) {  // Vérifier que la police est chargée
-        printf("Police non chargée\n");
+// Fonction pour afficher un texte à un endroit spécifique
+void afficherTexte(SDL_Renderer* renderer, TTF_Font* font, const char* texte, int x, int y) {
+    // Créer une texture de texte à partir de la police et du texte
+    SDL_Color couleur = {255, 255, 255, 255}; // Couleur  pour le texte
+    SDL_Surface* surface = TTF_RenderText_Solid(font, texte, couleur);
+    if (surface == NULL) {
+        printf("Erreur lors de la création de la surface de texte: %s\n", TTF_GetError());
         return;
     }
 
-    for (int i = 0; i < nbMouvements; i++) {
-        if (!mouvements[i]) {  // Vérifier que chaque élément de mouvements n'est pas NULL
-            printf("Texte de mouvement NULL à l'index %d\n", i);
-            continue;
-        }
-
-        SDL_Surface *surface = TTF_RenderText_Solid(font, &mouvements[i], couleur);
-        printf("Texte de mouvement à l'index %d: %s\n", i, &mouvements[i]);
-        if (!surface) {
-            printf("Erreur de rendu de texte : %s\n", TTF_GetError());
-            continue;
-        }
-
-        SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-        SDL_FreeSurface(surface);  // Libérer la surface après création de la texture
-
-        if (!texture) {
-            printf("Erreur de création de texture : %s\n", SDL_GetError());
-            continue;
-        }
-
-        SDL_Rect position = { .x = 10, .y =  (2* HAUTEUR_BOUSSOLE) + i * 20, .w = surface->w, .h = surface->h };
-        SDL_RenderCopy(renderer, texture, NULL, &position);
-        SDL_DestroyTexture(texture);  // Libérer la texture après l'avoir utilisée
+    // Créer une texture à partir de la surface
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if (texture == NULL) {
+        printf("Erreur lors de la création de la texture de texte: %s\n", SDL_GetError());
+        SDL_FreeSurface(surface);
+        return;
     }
+
+    // Définir la position de texte
+    SDL_Rect dstRect = {x, y, surface->w, surface->h};
+
+    // Rendre la texture (afficher le texte)
+    SDL_RenderCopy(renderer, texture, NULL, &dstRect);
+
+    // Libérer les ressources
+    SDL_DestroyTexture(texture);
+    SDL_FreeSurface(surface);
 }
 
 
-
-void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map map) {
+void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map map,n_node *tree) {
     SDL_Init(SDL_INIT_EVERYTHING);
 
     // Initialisation de SDL_ttf
@@ -145,24 +140,30 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
                                           SDL_WINDOW_SHOWN);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-    TTF_Font *font = TTF_OpenFont("..\\SDL2_ttf-2.22.0\\font\\arial.ttf", 16);  // Taille de police : 16
+    TTF_Font *font = TTF_OpenFont("..\\SDL2_ttf-2.22.0\\font\\arial.ttf", 14);  // Taille de police : 16
     if (!font) {
         printf("\nErreur de chargement de la police : %s\n", TTF_GetError());
         exit(1);
     }
-
+    TTF_Font *font2 = TTF_OpenFont("..\\SDL2_ttf-2.22.0\\font\\arial.ttf", 24);  // Taille de police : 16
+    if (!font2) {
+        printf("\nErreur de chargement de la police : %s\n", TTF_GetError());
+        exit(1);
+    }
 
     // Charger les textures
-    SDL_Texture *textures[13];
+    SDL_Texture *textures[14];
     initialiserTextures(renderer, textures);
     SDL_Texture *marcTexture = textures[5];
     SDL_Texture *errorTexture1 = textures[6];
     SDL_Texture *errorTexture2 = textures[7];
     SDL_Texture *welcomeTexture = textures[8];
     SDL_Texture* boussoleTextures[4] = {textures[9],textures[10],textures[11],textures[12]};
+    SDL_Texture *ESTF = textures[13];
 
-    int nbMouvements = 0;
-    const char** mouvements[100][100];
+    // Variables pour le défilement
+    int scrollX = 0, scrollY = 0;
+
 
     // Afficher l'image d'accueil
     SDL_RenderClear(renderer);
@@ -207,17 +208,38 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) continuer = 0;
             if (event.type == SDL_KEYDOWN) {
-                if (event.key.keysym.sym == SDLK_SPACE) {
-                    marc = move(marc, 2);  // Déplacer MARC si la touche Espace est pressée
+                switch (event.key.keysym.sym) {
+                    case SDLK_UP:    scrollY -= 20; break; // Défilement vers le haut
+                    case SDLK_DOWN:  scrollY += 20; break; // Défilement vers le bas
                 }
-                else if (event.key.keysym.sym == SDLK_DOWN) {
-                    marc = move(marc, 3);  // Déplacer MARC vers le bas
+                if (event.type == SDL_MOUSEBUTTONDOWN) {
+                    if (event.button.button == SDL_BUTTON_LEFT) { // Clic gauche
+                        scrollY -= 20; // Défilement vers le haut
+                    } else if (event.button.button == SDL_BUTTON_RIGHT) { // Clic droit
+                        scrollY += 20; // Défilement vers le bas
+                    }
                 }
-                else if (event.key.keysym.sym == SDLK_LEFT) {
-                    marc = move(marc, 4);  // Déplacer MARC vers la gauche
+
+                if (event.key.keysym.sym == SDLK_o) {
+                    marc = move(marc, 0);  //  MARC avance de 10 m
                 }
-                else if (event.key.keysym.sym == SDLK_RIGHT) {
-                    marc = move(marc, 5);  // Déplacer MARC vers la droite
+                else if (event.key.keysym.sym == SDLK_d) {
+                    marc = move(marc, 1);  //  MARC avance de 20 m
+                }
+                else if (event.key.keysym.sym == SDLK_t) {
+                    marc = move(marc, 2);  //  MARC si la touche Espace est pressée avance de 30 m
+                }
+                else if (event.key.keysym.sym == SDLK_b) {
+                    marc = move(marc, 3);  //  MARC recule de 10 m
+                }
+                else if (event.key.keysym.sym == SDLK_r) {
+                    marc = move(marc, 4);  // MARC tourne à droite (-90°)
+                }
+                else if (event.key.keysym.sym == SDLK_l) {
+                    marc = move(marc, 5);  // MARC tourne à gauche (+90°)
+                }
+                else if (event.key.keysym.sym == SDLK_u) {
+                    marc = move(marc, 6);  // MARC tourne
                 }
             }
         }
@@ -240,20 +262,17 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
             break;
         }
 
-        // Mettre à jour l'historique si MARC a bougé
-        snprintf(mouvements[nbMouvements], 20, "Position : %d %d", marc.pos.x, marc.pos.y);
-        nbMouvements++;
-
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);  // Effacer l'écran avec une couleur noire
+        SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);  // Effacer l'écran avec une couleur grise
         SDL_RenderClear(renderer);
 
-        //(const char*)mouvements;
 
+        afficherArbreStyleTreeScrollable(tree, renderer, font, 0, 134, 0, 0, scrollX, scrollY,0);
         afficherPlateau(renderer, plateau, textures, map,LARGEUR_HISTORIQUE);  // Afficher le plateau
         afficherMARC(renderer, marcTexture, marc);  // Afficher MARC
         afficherBoussole(renderer, boussoleTextures, marc.ori);
-        afficherHistorique(renderer, font, mouvements, nbMouvements);
-
+        afficher_ESTF(renderer, ESTF,map);
+        char* text = "Bonjour, SDL!";
+        afficherTexte(renderer, font2, text, 150, 90);
 
         SDL_RenderPresent(renderer);  // Mettre à jour l'écran
 
@@ -266,5 +285,69 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
     SDL_DestroyWindow(window);
     SDL_Quit();
     TTF_CloseFont(font);
+    TTF_CloseFont(font2);
     TTF_Quit();
+}
+
+void drawText(SDL_Renderer* renderer, const char* text, int x, int y,TTF_Font *font) {
+    SDL_Color color = {255, 255, 255, 255};
+    SDL_Surface* surface = TTF_RenderText_Solid(font, text, color);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+    SDL_Rect dst = {x, y, surface->w, surface->h};
+    SDL_RenderCopy(renderer, texture, NULL, &dst);
+
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
+}
+
+void afficherArbreStyleTreeScrollable(n_node* arbre,SDL_Renderer* renderer,TTF_Font* font,int x,int y,int niveau,int isLast,int scrollX,int scrollY,int depth)
+{
+    if (arbre == NULL || depth >= 5 || arbre->cost > 11111) {
+        return;
+    }
+
+    // Calcul des coordonnées avec décalage de défilement
+    int posX = x - scrollX;
+    int posY = y - scrollY;
+
+
+    // Indentation : préfixes pour chaque niveau
+    char buffer[256] = "";
+    for (int i = 0; i < niveau - 1; i++) {
+        strcat(buffer, "|   ");
+    }
+    if (niveau > 0) {
+        strcat(buffer, isLast ? "--" : "|- ");
+    }
+
+    // Ajoute le coût du nœud au texte
+    char temp[128];
+    sprintf(temp, "%sCout: %d", buffer, arbre->cost);
+    strcat(buffer, temp);
+
+    // Afficher le texte si visible dans la fenêtre
+    if (posX >= 0 && posX <= 800 && posY >= 0 && posY <= 600) { // Ajustez les dimensions selon votre fenêtre
+        drawText(renderer, buffer, posX, posY, font);
+
+    }
+
+    // Position des enfants (ajusté verticalement)
+    int childY = y + 30; // Décalage vertical entre les lignes
+    for (int i = 0; i < arbre->nbson; i++) {
+        // Appel récursif pour afficher les enfants
+        afficherArbreStyleTreeScrollable(
+                arbre->son[i],
+                renderer,
+                font,
+                x,               // Garder la position horizontale du parent
+                childY,          // Décalage vertical
+                niveau + 1,      // Augmenter la profondeur
+                i == arbre->nbson - 1, // Indique si c'est le dernier enfant
+                scrollX,
+                scrollY,
+                depth + 1
+        );
+        childY += 30; // Décalage pour le prochain enfant
+    }
 }

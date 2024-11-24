@@ -105,6 +105,13 @@ build CMakeFiles/untitled1.dir/interfaces_graphiques.c.obj: C_COMPILER__untitled
   OBJECT_DIR = CMakeFiles\untitled1.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
 
+build CMakeFiles/untitled1.dir/test.c.obj: C_COMPILER__untitled1_unscanned_Debug C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/test.c || cmake_object_order_depends_target_untitled1
+  DEP_FILE = CMakeFiles\untitled1.dir\test.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/include/SDL2 -IC:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\untitled1.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled1
@@ -113,7 +120,7 @@ build CMakeFiles/untitled1.dir/interfaces_graphiques.c.obj: C_COMPILER__untitled
 #############################################
 # Link the executable untitled1.exe
 
-build untitled1.exe: C_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/main.c.obj CMakeFiles/untitled1.dir/Code_fourni/loc.c.obj CMakeFiles/untitled1.dir/Code_fourni/moves.c.obj CMakeFiles/untitled1.dir/Code_fourni/map.c.obj CMakeFiles/untitled1.dir/Code_fourni/queue.c.obj CMakeFiles/untitled1.dir/Code_fourni/stack.c.obj CMakeFiles/untitled1.dir/tree.c.obj CMakeFiles/untitled1.dir/interfaces_graphiques.c.obj | C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2main.a C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2.dll.a
+build untitled1.exe: C_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/main.c.obj CMakeFiles/untitled1.dir/Code_fourni/loc.c.obj CMakeFiles/untitled1.dir/Code_fourni/moves.c.obj CMakeFiles/untitled1.dir/Code_fourni/map.c.obj CMakeFiles/untitled1.dir/Code_fourni/queue.c.obj CMakeFiles/untitled1.dir/Code_fourni/stack.c.obj CMakeFiles/untitled1.dir/tree.c.obj CMakeFiles/untitled1.dir/interfaces_graphiques.c.obj CMakeFiles/untitled1.dir/test.c.obj | C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2main.a C$:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2.dll.a
   FLAGS = -g
   LINK_LIBRARIES = C:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a  -lmingw32  -mwindows  C:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2main.a  C:/Users/20220848/CLionProjects/Projet_L2_with_Dorian/SDL2-devel-2.30.5-mingw/x86_64-w64-mingw32/lib/libSDL2.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled1.dir

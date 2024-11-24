@@ -3,6 +3,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "moves.h"
 
 /* prototypes of local functions */
@@ -22,13 +23,13 @@ t_orientation rotate(t_orientation, t_move );
  * @param move : the move to do
  * @return the new localisation of the robot
  */
-t_position translate(t_localisation , t_move);
+t_localisation translate(t_localisation , t_move);
 
 /* definition of local functions */
 
 t_orientation rotate(t_orientation ori, t_move move)
 {
-    t_orientation rst;
+    int rst=0;
     switch (move)
     {
         case T_LEFT:
@@ -40,20 +41,21 @@ t_orientation rotate(t_orientation ori, t_move move)
         case U_TURN:
             rst=2;
             break;
-        default:
+        default: // should not happen
+            rst=0;
             break;
     }
     return (ori+rst)%4;
 }
 
-t_position translate(t_localisation loc, t_move move)
+t_localisation translate(t_localisation loc, t_move move)
 {
     /** rules for coordinates:
      *  - x grows to the right with step of +1
      *  - y grows to the bottom with step of +1
      *  - the origin (x=0, y=0) is at the top left corner
      */
-    t_position res = loc.pos; // attention correction de bug car il ne copie par les coordoner de base apporter
+    t_position res=loc.pos;
     switch (move) {
         case F_10:
             switch (loc.ori) {
@@ -130,7 +132,7 @@ t_position translate(t_localisation loc, t_move move)
         default:
             break;
     }
-        return res;
+    return loc_init(res.x, res.y, loc.ori);
 
 }
 
@@ -143,19 +145,42 @@ char *getMoveAsString(t_move move)
 
 t_localisation move(t_localisation loc, t_move move)
 {
-    //modif car problem sur rotate
-    t_localisation newpos = loc_init(loc.pos.x,loc.pos.y,loc.ori);
-    if (move == T_LEFT || move == T_RIGHT || move == U_TURN ){
-        newpos.ori = rotate(loc.ori, move);
+    t_localisation new_loc=loc;
+    if ((move >=T_LEFT) && (move <= U_TURN))
+    {
+        new_loc.ori = rotate(loc.ori, move);
     }
-    else {
-        newpos.pos = translate(loc, move);
+    else
+    {
+        new_loc = translate(loc, move);
     }
-    return newpos;
+
+    return new_loc;
 }
 
 void updateLocalisation(t_localisation *p_loc, t_move m)
 {
     *p_loc = move(*p_loc, m);
     return;
+}
+
+t_move *getRandomMoves(int N)
+{
+    int nbmoves[]={22,15,7,7,21,21,7};
+    int total_moves=100;
+    t_move *moves = (t_move *)malloc(N * sizeof(t_move));
+    for (int i = 0; i < N; i++)
+    {
+        int r = rand() % total_moves;
+        int type=0;
+        while (r >= nbmoves[type])
+        {
+            r -= nbmoves[type];
+            type++;
+        }
+        nbmoves[type]--;
+        total_moves--;
+        moves[i] = (t_move )type;
+    }
+    return moves;
 }
