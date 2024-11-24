@@ -29,7 +29,7 @@ void initialiserTextures(SDL_Renderer *renderer, SDL_Texture **textures);
 void afficherPlateau(SDL_Renderer *renderer, int plateau[NBR_LIGNES][NBR_COLONNES], SDL_Texture *textures[5],t_map map,int deca);
 void libererTextures(SDL_Texture *textures[5]);
 void afficherMARC(SDL_Renderer *renderer, SDL_Texture *marcTexture, t_localisation marc);
-void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES],t_localisation marc,t_map map,n_node *tree);
+void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES],t_localisation marc,t_map map,n_node *tree,const char* complex[MAX_TIMERS]);
 
 void afficherBoussole(SDL_Renderer *renderer, SDL_Texture *boussoleTextures[4], t_orientation ori);
 void afficherTexte(SDL_Renderer* renderer, TTF_Font* font, const char* texte, int x, int y);

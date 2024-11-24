@@ -124,7 +124,7 @@ void afficherTexte(SDL_Renderer* renderer, TTF_Font* font, const char* texte, in
 }
 
 
-void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map map,n_node *tree) {
+void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map map,n_node *tree,const char* complex[MAX_TIMERS]) {
     SDL_Init(SDL_INIT_EVERYTHING);
 
     // Initialisation de SDL_ttf
@@ -145,7 +145,7 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
         printf("\nErreur de chargement de la police : %s\n", TTF_GetError());
         exit(1);
     }
-    TTF_Font *font2 = TTF_OpenFont("..\\SDL2_ttf-2.22.0\\font\\arial.ttf", 24);  // Taille de police : 16
+    TTF_Font *font2 = TTF_OpenFont("..\\SDL2_ttf-2.22.0\\font\\arial.ttf", 12);  // Taille de police : 16
     if (!font2) {
         printf("\nErreur de chargement de la police : %s\n", TTF_GetError());
         exit(1);
@@ -271,8 +271,13 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
         afficherMARC(renderer, marcTexture, marc);  // Afficher MARC
         afficherBoussole(renderer, boussoleTextures, marc.ori);
         afficher_ESTF(renderer, ESTF,map);
-        char* text = "Bonjour, SDL!";
-        afficherTexte(renderer, font2, text, 150, 90);
+
+        const char* text = complex[0];
+        afficherTexte(renderer, font2, text, 150, 110);
+        const char* text1 = complex[1];
+        afficherTexte(renderer, font2, text1, 150, 90);
+        const char* text2 = complex[2];
+        afficherTexte(renderer, font2, text2, 150, 70);
 
         SDL_RenderPresent(renderer);  // Mettre à jour l'écran
 

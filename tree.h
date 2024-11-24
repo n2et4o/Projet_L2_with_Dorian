@@ -10,6 +10,38 @@
 #include "Code_fourni/map.h"
 #include "Code_fourni/moves.h"
 
+#include <time.h>
+
+// Constantes
+#define MAX_TIMERS 4
+
+// Structure pour un chronomètre
+typedef struct {
+    clock_t start_time;
+    double elapsed_time;
+    int active;
+} Timer;
+
+// Initialise un tableau de chronomètres
+void init_timers(Timer* timers);
+
+// Contrôle un chronomètre
+// id : identifiant du chronomètre (0 à MAX_TIMERS - 1)
+// mode : 0 pour démarrer, 1 pour arrêter
+void timer_control(Timer* timers, int id, int mode);
+
+// Affiche les résultats de tous les chronomètres
+char* get_timer_result(Timer* timers, int id);
+
+// Réinitialise tous les chronomètres
+void reset_timers(Timer* timers);
+
+// Gère le total des temps pour une catégorie donnée (ex : guidage complet)
+void add_to_total(Timer* timers, int id, double* total);
+
+// Affiche le total des temps d'une catégorie
+void print_total_time(double total);
+
 typedef struct tree {
     t_localisation loc;
     int cost, *moves;
