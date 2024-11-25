@@ -13,8 +13,8 @@
 #include "Code_fourni/map.h"
 #include "Code_fourni/loc.h"
 #include "Code_fourni/moves.h"
-#define LARGEUR_CASE 67
-#define HAUTEUR_CASE 67
+#define LARGEUR_CASE 34
+#define HAUTEUR_CASE 34
 #define NBR_COLONNES 6
 #define NBR_LIGNES 7
 #define LARGEUR_HISTORIQUE 200

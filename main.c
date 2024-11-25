@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
     // Variable pour accumuler le temps total du guidage complet
     double total_guidage_complet = 0;
 
-    t_map map = createMapFromFile("..\\maps\\example1.map");
-    //t_map map = createTrainingMap();
+    //t_map map = createMapFromFile("..\\maps\\example1.map");
+    t_map map = createTrainingMap();
 
     printf("Map created with dimensions %d x %d\n", map.y_max, map.x_max);
 
@@ -52,10 +52,11 @@ int main(int argc, char *argv[]) {
 
     printf("\n");
     afficherArbre(tree,0,"",1);
-    printf("--->ICI");
+    printf("--->end tree\n");
 
     timer_control(timers, 1, 0);
-    min_son(tree);
+    n_node *minN = min_son(tree);
+    printf("[%d][%d]", minN->loc.pos.x,minN->loc.pos.y);
     timer_control(timers, 1, 1);
 
     timer_control(timers, 3, 1);
@@ -71,6 +72,7 @@ int main(int argc, char *argv[]) {
     };
 
     run_rover(plateau, marc, map,tree,complex);
+
 
     return 0;
 }

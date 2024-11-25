@@ -30,6 +30,7 @@ void initialiserTextures(SDL_Renderer *renderer, SDL_Texture **textures) {
     textures[11] = chargerTexture(renderer, "..\\images\\Sud.bmp");
     textures[12] = chargerTexture(renderer, "..\\images\\Ouest.bmp");
     textures[13] = chargerTexture(renderer, "..\\images\\ESTF.bmp");
+    textures[14] = chargerTexture(renderer, "..\\images\\base.bmp");
 }
 
 void afficherPlateau(SDL_Renderer *renderer, int plateau[NBR_LIGNES][NBR_COLONNES], SDL_Texture *textures[5],t_map map,int deca) {
@@ -66,8 +67,8 @@ void afficherPlateau(SDL_Renderer *renderer, int plateau[NBR_LIGNES][NBR_COLONNE
     }
 }
 
-void libererTextures(SDL_Texture *textures[14]) {
-    for (int i = 0; i < 14; i++) {
+void libererTextures(SDL_Texture *textures[15]) {
+    for (int i = 0; i < 15; i++) {
         if (textures[i]) {
             SDL_DestroyTexture(textures[i]);
         }
@@ -160,6 +161,7 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
     SDL_Texture *welcomeTexture = textures[8];
     SDL_Texture* boussoleTextures[4] = {textures[9],textures[10],textures[11],textures[12]};
     SDL_Texture *ESTF = textures[13];
+    SDL_Texture *base = textures[14];
 
     // Variables pour le défilement
     int scrollX = 0, scrollY = 0;
@@ -206,11 +208,17 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
 
     while (continuer) {
         while (SDL_PollEvent(&event)) {
+
+
             if (event.type == SDL_QUIT) continuer = 0;
             if (event.type == SDL_KEYDOWN) {
                 switch (event.key.keysym.sym) {
-                    case SDLK_UP:    scrollY -= 20; break; // Défilement vers le haut
-                    case SDLK_DOWN:  scrollY += 20; break; // Défilement vers le bas
+                    case SDLK_UP:
+                        scrollY -= 20;
+                        break; // Défilement vers le haut
+                    case SDLK_DOWN:
+                        scrollY += 20;
+                        break; // Défilement vers le bas
                 }
                 if (event.type == SDL_MOUSEBUTTONDOWN) {
                     if (event.button.button == SDL_BUTTON_LEFT) { // Clic gauche
@@ -220,31 +228,24 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
                     }
                 }
 
-                if (event.key.keysym.sym == SDLK_o) {
+
+                if (event.key.keysym.sym == SDLK_o ) {
                     marc = move(marc, 0);  //  MARC avance de 10 m
-                }
-                else if (event.key.keysym.sym == SDLK_d) {
+                } else if (event.key.keysym.sym == SDLK_d ) {
                     marc = move(marc, 1);  //  MARC avance de 20 m
-                }
-                else if (event.key.keysym.sym == SDLK_t) {
+                } else if (event.key.keysym.sym == SDLK_t ) {
                     marc = move(marc, 2);  //  MARC si la touche Espace est pressée avance de 30 m
-                }
-                else if (event.key.keysym.sym == SDLK_b) {
+                } else if (event.key.keysym.sym == SDLK_b ) {
                     marc = move(marc, 3);  //  MARC recule de 10 m
-                }
-                else if (event.key.keysym.sym == SDLK_r) {
+                } else if (event.key.keysym.sym == SDLK_l ) {
                     marc = move(marc, 4);  // MARC tourne à droite (-90°)
-                }
-                else if (event.key.keysym.sym == SDLK_l) {
+                } else if (event.key.keysym.sym == SDLK_r ) {
                     marc = move(marc, 5);  // MARC tourne à gauche (+90°)
-                }
-                else if (event.key.keysym.sym == SDLK_u) {
+                } else if (event.key.keysym.sym == SDLK_u ) {
                     marc = move(marc, 6);  // MARC tourne
                 }
             }
         }
-
-
 
         if (marc.pos.x < 0 || marc.pos.x >= map.x_max || marc.pos.y < 0 || marc.pos.y >= map.y_max) { // Sortie de la carte ou chute dans une crevasse
             SDL_RenderClear(renderer);
@@ -257,6 +258,14 @@ void run_rover(int plateau[NBR_LIGNES][NBR_COLONNES], t_localisation marc, t_map
         if (plateau[marc.pos.y][marc.pos.x] == 4) {
             SDL_RenderClear(renderer);
             SDL_RenderCopy(renderer, errorTexture1, NULL, NULL);
+            SDL_RenderPresent(renderer);
+            SDL_Delay(3000);
+            break;
+        }
+
+        if (plateau[marc.pos.y][marc.pos.x] == 0) {
+            SDL_RenderClear(renderer);
+            SDL_RenderCopy(renderer, base, NULL, NULL);
             SDL_RenderPresent(renderer);
             SDL_Delay(3000);
             break;
