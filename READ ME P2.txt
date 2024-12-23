@@ -1,0 +1,18 @@
+-Projet de Joss DOUNIAMA OKANA, Dorian CAUSSIMON & Warren BADEAU Groupe BN
+
+-Git du projet : https://github.com/n2et4o/Projet_L2_with_Dorian
+ 
+- ATTENTION : le code final se trouve sur la branche "joss's part" et lancer via le "debug" pour qu'il ait une sortie dans la console !!!
+
+-Fonctionnalité : Interface graphique avec la carte et le rover que l'on peut contrôler manuellement, 
+un arbre et la complexité en temps. 
+
+ 
+- Contrôle manuel de MARC : 
+u Se retourner
+l Tourner à gauche
+r Tourner à droite
+o Avancer de 1 case
+d Avancer de 2 cases 
+t Avancer de 3 cases
+b Reculer
